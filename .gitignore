@@ -1,10 +1,8 @@
 *.json
 *.JSON
-DataEngineering/1-DataModeling/.ipynb_checkpoints/*
-DataEngineering/1-DataModeling/Lesson1/.ipynb_checkpoints/*
-DataEngineering/1-DataModeling/Lesson2/.ipynb_checkpoints/*
-DataEngineering/1-DataModeling/Lesson3/.ipynb_checkpoints/*
-DataEngineering/1-DataModeling/Lesson3/__pycache__/*
+.ipynb_checkpoints/
+__pycache__/
+event_data/
 *.odt
 *.pdf
 .Rhistory
