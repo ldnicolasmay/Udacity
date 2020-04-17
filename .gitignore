@@ -1,3 +1,5 @@
+.DS_Store
+*.csv
 *.json
 *.JSON
 .ipynb_checkpoints/
@@ -6,4 +8,9 @@ event_data/
 *.odt
 *.pdf
 .Rhistory
+Data_Warehouse_Project_Template/
+*.cfg
+*Solution.ipynb
+log_json_path.json
+DataEngineering/2-CloudDataWarehouses/Lesson4/Data_Warehouse_Project/test.ipynb
 
