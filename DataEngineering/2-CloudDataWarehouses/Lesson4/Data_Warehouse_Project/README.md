@@ -96,8 +96,8 @@ WHERE
 LIMIT 10;
 ```
 
-songplay_id|song_id|title|artist_id|name
----|---|---|---|---|---
+songplay_id | song_id | title | artist_id | name
+---|---|---|---|---
 118|SONQBUB12A6D4F8ED0|Angie (1993 Digital Remaster)|ARFCUN31187B9AD578|The Rolling Stones
 102|SONQBUB12A6D4F8ED0|Angie (1993 Digital Remaster)|ARFCUN31187B9AD578|The Rolling Stones
 94|SOCHRXB12A8AE48069|Let's Get It Started|ARTDQRC1187FB4EFD4|Black Eyed Peas
