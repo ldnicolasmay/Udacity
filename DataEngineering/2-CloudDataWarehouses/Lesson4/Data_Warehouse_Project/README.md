@@ -1,6 +1,5 @@
 # Sparkify Data Warehouse
 
-----
 
 ## Data Warehouse Purpose
 
@@ -10,7 +9,6 @@ Sparkify will store its raw data about (1) users' interaction with their music s
 
 The purpose of this data warehouse is to hold all the relevant data in one place, organized in a fact-and-dimension star schema, so that analysts and business intelligence users can easily query the data in order to learn about what songs users are listening to.
 
-----
 
 ## Data Warehouse Design
 
@@ -48,7 +46,6 @@ The `time_table`, `user_table`, and `artist_table` dimension tables will most of
 
 Similar to the other dimension tables, the `song_table` will likely be joined on its primary key from the fact table, so it will be sorted by its primary key, `song_id`. However, unlike the other dimension tables, the `song_table` is expected to be quite large, so there is a different distrubtion strategy. Here, the table is distributed across the node slices by the primary key field, `song_id`, using `DISTKEY`.
 
-----
 
 ## Example Queries
 
