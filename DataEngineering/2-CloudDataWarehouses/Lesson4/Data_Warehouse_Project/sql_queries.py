@@ -20,7 +20,7 @@ time_table_drop = "DROP TABLE IF EXISTS time_table;"
 staging_events_table_create = (
     """
     CREATE TABLE staging_events_table (
-      id             INTEGER  IDENTITY(0,1)  PRIMARY KEY,
+      id             INTEGER  IDENTITY(0,1),
       artist         VARCHAR,
       auth           VARCHAR,
       firstName      VARCHAR,
@@ -46,7 +46,7 @@ staging_events_table_create = (
 staging_songs_table_create = (
     """
     CREATE TABLE staging_songs_table (
-      id                INTEGER  IDENTITY(0,1)  PRIMARY KEY,
+      id                INTEGER  IDENTITY(0,1),
       num_songs         INTEGER,
       artist_id         VARCHAR,
       artist_latitude   NUMERIC,
@@ -64,7 +64,7 @@ staging_songs_table_create = (
 user_table_create = (
     """
     CREATE TABLE user_table (
-      user_id     INTEGER  PRIMARY KEY  SORTKEY,
+      user_id     INTEGER  NOT NULL  PRIMARY KEY  SORTKEY,
       first_name  VARCHAR,
       last_name   VARCHAR,
       gender      VARCHAR,
@@ -76,7 +76,7 @@ user_table_create = (
 song_table_create = (
     """
     CREATE TABLE song_table (
-      song_id    VARCHAR  PRIMARY KEY  SORTKEY  DISTKEY,
+      song_id    VARCHAR  NOT NULL  PRIMARY KEY  SORTKEY  DISTKEY,
       title      VARCHAR,
       artist_id  VARCHAR,
       year       INTEGER,
@@ -88,7 +88,7 @@ song_table_create = (
 artist_table_create = (
     """
     CREATE TABLE artist_table (
-      artist_id  VARCHAR  PRIMARY KEY  SORTKEY,
+      artist_id  VARCHAR  NOT NULL  PRIMARY KEY  SORTKEY,
       name       VARCHAR,
       location   VARCHAR,
       latitude   DECIMAL,
@@ -100,7 +100,7 @@ artist_table_create = (
 time_table_create = (
     """
     CREATE TABLE time_table (
-      start_time  TIMESTAMP  PRIMARY KEY  SORTKEY,
+      start_time  TIMESTAMP  NOT NULL  PRIMARY KEY  SORTKEY,
       hour        INTEGER,
       day         INTEGER,
       week        INTEGER,
@@ -114,12 +114,12 @@ time_table_create = (
 songplay_table_create = (
     """
     CREATE TABLE songplay_table (
-      songplay_id  INTEGER    IDENTITY(0,1)                      PRIMARY KEY,
-      start_time   TIMESTAMP  REFERENCES time_table(start_time)  SORTKEY,
-      user_id      INTEGER    REFERENCES user_table(user_id),
+      songplay_id  INTEGER    IDENTITY(0,1)                       NOT NULL  PRIMARY KEY,
+      start_time   TIMESTAMP  REFERENCES time_table(start_time)   NOT NULL  SORTKEY,
+      user_id      INTEGER    REFERENCES user_table(user_id)      NOT NULL,
       level        VARCHAR,
-      song_id      VARCHAR    REFERENCES song_table(song_id)     DISTKEY,
-      artist_id    VARCHAR    REFERENCES artist_table(artist_id),
+      song_id      VARCHAR    REFERENCES song_table(song_id)      NOT NULL  DISTKEY,
+      artist_id    VARCHAR    REFERENCES artist_table(artist_id)  NOT NULL,
       session_id   INTEGER,
       location     VARCHAR,
       user_agent   VARCHAR

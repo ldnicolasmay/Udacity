@@ -16,6 +16,8 @@ The purpose of this data warehouse is to hold all the relevant data in one place
 
 The data warehouse data is organized into a fact-and-dimension star schema. The fact table of this scheme is `songplay_table` (the target user activity) and the dimension tables are `time_table` (songplay start time data), `user_table` (user data), `song_table` (song data), and `artist_table` (artist data).
 
+![songplay star schema](img/songplay_star_schema.svg "songplay star schema")
+
 ### ETL Pipeline
 
 #### Create tables
