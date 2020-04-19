@@ -73,16 +73,16 @@ LIMIT 10;
 
 artist|song|length|artist_name|title|duration
 ---|---|---|---|---|---
-Huey Lewis & The News,I Want A New Drug,286,Huey Lewis & The News,I Want A New Drug,286
-The Smiths,The Boy With The Thorn In His Side,196,The Smiths,The Boy With The Thorn In His Side,196
-Pearl Jam,Not For You,352,Pearl Jam,Not For You,352
-The Smiths,The Boy With The Thorn In His Side,196,The Smiths,The Boy With The Thorn In His Side,196
-Black Eyed Peas,Let's Get It Started,229,Black Eyed Peas,Let's Get It Started,229
-Placebo,English Summer Rain,241,Placebo,English Summer Rain,241
-The Verve,Bitter Sweet Symphony,360,The Verve,Bitter Sweet Symphony,360
-Van Halen,Panama (Remastered Album Version),209,Van Halen,Panama (Remastered Album Version),209
-Black Eyed Peas,Let's Get It Started,229,Black Eyed Peas,Let's Get It Started,229
-De-Phazz,Astrud Astronette,205,De-Phazz,Astrud Astronette,205
+Huey Lewis & The News|I Want A New Drug|286|Huey Lewis & The News|I Want A New Drug|286
+The Smiths|The Boy With The Thorn In His Side|196|The Smiths|The Boy With The Thorn In His Side|196
+Pearl Jam|Not For You|352|Pearl Jam|Not For You|352
+The Smiths|The Boy With The Thorn In His Side|196|The Smiths|The Boy With The Thorn In His Side|196
+Black Eyed Peas|Let's Get It Started|229|Black Eyed Peas|Let's Get It Started|229
+Placebo|English Summer Rain|241|Placebo|English Summer Rain|241
+The Verve|Bitter Sweet Symphony|360|The Verve|Bitter Sweet Symphony|360
+Van Halen|Panama (Remastered Album Version)|209|Van Halen|Panama (Remastered Album Version)|209
+Black Eyed Peas|Let's Get It Started|229|Black Eyed Peas|Let's Get It Started|229
+De-Phazz|Astrud Astronette|205|De-Phazz|Astrud Astronette|205
 
 ### Example 2
 
@@ -107,13 +107,13 @@ LIMIT 10;
 
 songplay_id | song_id | title | artist_id | name
 ---|---|---|---|---
-10,SODOLVO12B0B80B2F4,Hell,AR6XPWV1187B9ADAEB,Foo Fighters
-16,SODWXQV12A6310F10D,English Summer Rain,AR6892W1187B9AC71B,Placebo
-40,SOXQYSC12A6310E908,Bitter Sweet Symphony,AR0L04E1187B9AE90C,The Verve
-24,SOXQYSC12A6310E908,Bitter Sweet Symphony,AR0L04E1187B9AE90C,The Verve
-11,SOLRYQR12A670215BF,Panama (Remastered Album Version),ARNLO5S1187B9B80CC,Van Halen
-0,SOHDWWH12A6D4F7F6A,I Want A New Drug,ARC0IOF1187FB3F6E6,Huey Lewis & The News
-1,SOZCTXZ12AB0182364,Setanta matins,AR5KOSW1187FB35FF4,Elena
-8,SOAOJYY12A58A7B2F9,Not For You,ARFVYJI1187B9B8E13,Pearl Jam
-2,SOFVOQL12A6D4F7456,The Boy With The Thorn In His Side,ARPN0Y61187B9ABAA0,The Smiths
-3,SOFVOQL12A6D4F7456,The Boy With The Thorn In His Side,ARPN0Y61187B9ABAA0,The Smiths
+10|SODOLVO12B0B80B2F4|Hell|AR6XPWV1187B9ADAEB|Foo Fighters
+16|SODWXQV12A6310F10D|English Summer Rain|AR6892W1187B9AC71B|Placebo
+40|SOXQYSC12A6310E908|Bitter Sweet Symphony|AR0L04E1187B9AE90C|The Verve
+24|SOXQYSC12A6310E908|Bitter Sweet Symphony|AR0L04E1187B9AE90C|The Verve
+11|SOLRYQR12A670215BF|Panama (Remastered Album Version)|ARNLO5S1187B9B80CC|Van Halen
+0|SOHDWWH12A6D4F7F6A|I Want A New Drug|ARC0IOF1187FB3F6E6|Huey Lewis & The News
+1|SOZCTXZ12AB0182364|Setanta matins|AR5KOSW1187FB35FF4|Elena
+8|SOAOJYY12A58A7B2F9|Not For You|ARFVYJI1187B9B8E13|Pearl Jam
+2|SOFVOQL12A6D4F7456|The Boy With The Thorn In His Side|ARPN0Y61187B9ABAA0|The Smiths
+3|SOFVOQL12A6D4F7456|The Boy With The Thorn In His Side|ARPN0Y61187B9ABAA0|The Smiths
