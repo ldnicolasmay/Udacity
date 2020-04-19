@@ -164,7 +164,7 @@ songplay_table_insert = (
       location,
       user_agent
     )
-    SELECT 
+    SELECT DISTINCT
       DATE_ADD('ms', ev.ts, '1970-01-01') AS start_time,
       ev.userid,
       ev.level,
@@ -178,7 +178,9 @@ songplay_table_insert = (
     ON 
       ev.artist = so.artist_name AND
       ev.song   = so.title       AND
-      ev.length = so.duration;
+      ev.length = so.duration
+    WHERE
+      ev.page = 'NextSong';
     """
 )
 
@@ -191,14 +193,16 @@ user_table_insert = (
       gender,
       level
     )
-    SELECT 
+    SELECT DISTINCT
       userid, 
       firstname, 
       lastname, 
       gender, 
       level
     FROM staging_events_table
-    WHERE userid IS NOT NULL;
+    WHERE
+      page = 'NextSong' AND
+      userid IS NOT NULL;
     """
 )
 
@@ -211,7 +215,7 @@ song_table_insert = (
       year,
       duration
     )
-    SELECT
+    SELECT DISTINCT
       song_id,
       title,
       artist_id,
@@ -231,7 +235,7 @@ artist_table_insert = (
       latitude,
       longitude
     )
-    SELECT
+    SELECT DISTINCT
       artist_id,
       artist_name,
       artist_location,
@@ -252,17 +256,17 @@ time_table_insert = (
       month,
       year,
       weekday
-    )
+    ) 
     SELECT
-      DATE_ADD('ms', ts, '1970-01-01') AS start_time,
+      start_time,
       EXTRACT(HOUR  FROM start_time) AS hour,
       EXTRACT(DAY   FROM start_time) AS day,
       EXTRACT(WEEK  FROM start_time) AS week,
       EXTRACT(MONTH FROM start_time) AS month,
       EXTRACT(YEAR  FROM start_time) AS year,
       EXTRACT(DOW   FROM start_time) AS weekday
-    FROM staging_events_table
-    WHERE ts IS NOT NULL;
+    FROM songplay_table
+    WHERE start_time IS NOT NULL;
     """
 )
 
