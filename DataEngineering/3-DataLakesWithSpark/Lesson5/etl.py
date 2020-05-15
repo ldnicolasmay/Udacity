@@ -7,9 +7,11 @@ from pyspark.sql.functions import year, month, dayofweek, dayofmonth, hour, week
 from pyspark.sql.types import StructField, StructType, StringType, DoubleType, LongType, TimestampType
 
 
+# parse AWS credentials from config file
 config = configparser.ConfigParser()
 config.read('dl.cfg')
 
+# set OS environment variables for use by Spark
 os.environ['AWS_ACCESS_KEY_ID'] = config['AWS']['AWS_ACCESS_KEY_ID']
 os.environ['AWS_SECRET_ACCESS_KEY'] = config['AWS']['AWS_SECRET_ACCESS_KEY']
 
