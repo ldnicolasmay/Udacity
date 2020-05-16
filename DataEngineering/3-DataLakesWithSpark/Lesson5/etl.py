@@ -226,7 +226,7 @@ def process_log_data(spark, input_data, output_data):
     # write songplays_table to parquet files
     print("\n---- write songplays_table ----", datetime.now().strftime('%Y-%m-%d %H:%M:%S'), "\n")
     songplays_table.write.parquet(output_data + "data_lake/songplays_table_parquet",
-                                  mode="overwrite")
+                                  mode="overwrite", partitionBy=['year', 'month'])
 
 
 def main():

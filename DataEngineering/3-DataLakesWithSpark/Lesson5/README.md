@@ -148,3 +148,89 @@ df_join_2.show()
 |     49|111669149703|San Francisco-Oak...|     Chloe|   Cuevas|     F| free|
 +-------+------------+--------------------+----------+---------+------+-----+
 ```
+
+
+## Reproducing the Cluster Setup
+
+* Set up an EC2 keypair for your EMR cluster
+
+* Set up Spark cluster with Amazon EMR - "Create Cluster" (with Quick Options)
+  * General Configuration
+    * Cluster name: `whatever-meaningful-name-you-want`
+    * Logging: [checked]
+    * Launch mode: [Cluster]
+  * Software configuration
+    * Release: [emr-5.29.0] or higher
+    * Applications: [Spark 2.4.4, Hadoop 2.8.5, Ganglia 3.7.2, Zeppelin 0.8.2]
+  * Hardware configuration
+    * Instance type: [m5.xlarge]
+    * Number of instances: [4]
+  * Security and access
+    * EC2 key pair: [EC2 keypair you created]
+    * Permissions: [Default]
+    * EMR role: [EMR_DefaultRole]
+    * EC2 instance profile: [EMR_EC2_DefaultRole]
+    
+* Enable EMR cluster web connection - Once the cluster is in "Waiting" mode, follow the link to the instructions to enable a web connection.
+  * Open SSH tunnel to Amazon EMR master node
+  * Configure proxy management tool (FoxyProxy on Chrome; instructions in AWS)
+  
+```shell script
+ssh -i spark-master.pem -vND 8157 \
+    hadoop@ec2-XXX-XXX-XXX-XXX.aws-region-X.compute.amazonaws.com
+```
+
+* Check SSH connection to master node
+
+```shell script
+ssh -i spark-master.pem \
+    hadoop@ec2-XXX-XXX-XXX-XXX.aws-region-X.compute.amazonaws.com
+```
+### Jupyter Notebook
+
+Once a cluster is up and running, you can start a new Jupyter notebook from the EMR web interface.
+
+* Start a Jupyter notebook with a (Py)Spark kernel (or connect an existing notebook to a new cluster)
+* Do data transformation / analysis
+
+### Script with S3
+
+Once a cluster is up and running, you can copy (Py)Spark scripts to the master node to read data from an S3 bucket, transform the data, then write the transformed data to an S3 bucket.
+
+* From (local) matching with scripts, copy the scripts to master node using `scp`
+
+```shell script
+scp -i spark-master.pem my_pyspark_script.py \
+    hadoop@ec2-XXX-XXX-XXX-XXX.aws-region-X.compute.amazonaws.com:~/
+```
+
+* Run the script using `spark-submit`
+
+```shell script
+spark-submit --master yarn ~/my_s3_pyspark_script.py
+```
+
+### Script with HDFS
+
+Once a cluster is running, you can copy raw data to the cluster's HDFS (with a path like `hdfs:///hdfs/path/to/input_data.json`). Then you can copy (Py)Spark scripts to the cluster's master node to transform the data and then load it to the cluster's HDFS (with a path like `hdfs:///hdfs/path/to/output_data_parquet`) or to an S3 bucket (with a path like (`s3://my-bucket/path/to/output_data_parquet`).
+
+* Load data to master node
+* SSH into master node
+* Copy data from master node to cluster's HDFS using `-copyFromLocal` option
+
+```shell script
+hdfs dfs -copyFromLocal /masternode/path/to/file.json /hdfs/path/to/file.json
+```
+
+* From (local) machine with scripts that transform data from HDFS, copy the scripts to the master using `scp`
+
+```shell script
+scp -i spark-master.pem my_pyspark_script.py \
+    hadoop@ec2-XXX-XXX-XXX-XXX.aws-region-X.compute.amazonaws.com:~/
+```
+
+* Run the script using `spark-submit`
+
+```shell script
+spark-submit --master yarn ~/my_hdfs_pyspark_script.py
+```
