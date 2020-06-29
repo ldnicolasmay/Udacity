@@ -46,13 +46,5 @@ class FactsCalculatorOperator(BaseOperator):
             destination_table=self.destination_table,
             fact_column=self.fact_column,
             groupby_column=self.groupby_column
-            # self.destination_table,
-            # self.destination_table,
-            # self.groupby_column,
-            # self.fact_column, self.fact_column,
-            # self.fact_column, self.fact_column,
-            # self.fact_column, self.fact_column,
-            # self.origin_table,
-            # self.groupby_column
         )
         redshift_hook.run(formatted_facts_sql)
