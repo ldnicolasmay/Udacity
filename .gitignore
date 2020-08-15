@@ -1,6 +1,7 @@
 .metals/
 .idea/
 .ipynb_checkpoints/
+.archive/
 
 venv/
 __pycache__/

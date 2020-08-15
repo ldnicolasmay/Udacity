@@ -12,3 +12,10 @@ Project: [Data Warehouse with Amazon Redshift](https://github.com/ldnicolasmay/U
 
 Project: [Data Lake with Amazon EMR Spark Cluster](https://github.com/ldnicolasmay/Udacity/tree/master/DataEngineering/3-DataLakesWithSpark/Lesson5)
 
+## Data Pipelines with Apache Airflow
+
+Project: [Data Pipelines with Apache Airflow](https://github.com/ldnicolasmay/Udacity/tree/master/DataEngineering/4-DataPipelinesWithAirflow/Lesson4)
+
+## Final Project
+
+Project: [Open Observatory of Network Interference ETL](https://github.com/ldnicolasmay/Udacity/tree/master/DataEngineering/CapstoneProject)
