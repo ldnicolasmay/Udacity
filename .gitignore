@@ -27,5 +27,18 @@ Data_Warehouse_Project_Template/
 
 *solution.ipynb
 *Solution.ipynb
+__init__.py
+
 DataEngineering/2-CloudDataWarehouses/Lesson4/Data_Warehouse_Project/test.ipynb
+
 DataEngineering/3-DataLakesWithSpark/Lesson5/test.ipynb
+
+DataEngineering/CapstoneProject/Capstone Project Template.ipynb
+DataEngineering/CapstoneProject/NOTES.md
+DataEngineering/CapstoneProject/autonomous_system_data.py
+DataEngineering/CapstoneProject/data/
+DataEngineering/CapstoneProject/driver.py
+DataEngineering/CapstoneProject/foo.txt
+DataEngineering/CapstoneProject/iso_country_code_data.py
+DataEngineering/CapstoneProject/sandbox.py
+DataEngineering/CapstoneProject/worldbank_indicator_data.py

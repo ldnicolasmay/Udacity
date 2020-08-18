@@ -2,3 +2,5 @@ pandas
 jupyter
 pyspark
 apache-airflow[aws]
+pyarrow
+s3fs
