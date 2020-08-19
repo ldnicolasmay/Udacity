@@ -66,7 +66,9 @@ There are three apps that perform the work for this data pipeline:
     
 2. `EtlOoniTestData`, a Spark app that relies on the S3 keys filtered by the `FilterOooniS3Keys` app to extract only the JSONL data that corresponds to the target OONI tests, transform the data into tables to meet the requirements of a star schema data model, and load the star schema tables into the destination S3 bucket as parquet files.
 
-3. Baz qux
+3. [`EtlWorldBankData`](https://github.com/ldnicolasmay/EtlWorldBankData), a Python app that uses the [pandas](https://pandas.pydata.org/) module to extract data from the World Bank's [World Development Indicator](https://data.worldbank.org/indicator) data API, clean the data somewhat, then load data into the destination S3 bucket as parquet files.
+
+In the diagram that follows, the `FilterOoniS3Keys` pipeline lies along the top third, the `EtlOoniTestData` pipeline lies in the middle third, and the `EtlWorldBankData` pipeline lies in the bottom third.
 
 ![capstone project architecture](img/UdacityCapstoneProject.svg "capstone project architecture")
 
