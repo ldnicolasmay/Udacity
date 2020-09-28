@@ -283,7 +283,7 @@ All tables of World Bank data have the same data dictionary.
 
 ### Data Quality Checks
 
-Many data quality checks for the extracted OONI data are made possible by the types defined in the Spark Dataset schema defined in the OONI ETL Spark app's `package.scala` file, available here: [https://github.com/ldnicolasmay/EtlOoniTestData/blob/master/src/main/scala/EtlOoniTestData/package.scala](https://github.com/ldnicolasmay/EtlOoniTestData/blob/master/src/main/scala/EtlOoniTestData/package.scala). For a project of this scope, many other data quality checks could be built.
+Many data quality checks for the extracted OONI data are made possible by the types defined in the Spark Dataset schema defined in lines 210-275 of the OONI ETL Spark app's `package.scala` file, available here: [https://github.com/ldnicolasmay/EtlOoniTestData/blob/07b3cd09f0f357823db6a32ba2abe1c8d40f49a4/src/main/scala/EtlOoniTestData/package.scala#L210](https://github.com/ldnicolasmay/EtlOoniTestData/blob/07b3cd09f0f357823db6a32ba2abe1c8d40f49a4/src/main/scala/EtlOoniTestData/package.scala#L210). For a project of this scope, many other data quality checks could be built.
 
 
 ## Step 5: Complete Project 
