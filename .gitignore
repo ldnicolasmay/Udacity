@@ -20,6 +20,7 @@ Data_Warehouse_Project_Template/
 *.zip
 *.xml
 *.bak
+*.yaml
 
 *.iml
 *.cfg
