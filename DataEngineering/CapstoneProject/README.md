@@ -1,4 +1,4 @@
-# Open Observatory of Network Interference (OONI) Data ETL
+# Open Observatory of Network Interference (OONI) Data Lake
 
 
 ## Step 1: Scope the Project and Gather Data
