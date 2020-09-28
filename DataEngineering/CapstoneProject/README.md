@@ -21,11 +21,11 @@ When we combine OONI data with other world development indicator statistics avai
 
 ### Addressing Other Scenarios
 
-1. **If the data were increased by 100x**, it would make sense to process the data daily instead of monthly. Since the data are not available as a stream but instead are processed daily, it's impossible to process it more frequently than that.
+1. **If the data were increased by 100x**, it would make sense to process the data daily instead of monthly. Since the data are not available as a stream but instead are processed daily, it's impossible to process it more frequently than that. If this were to become a daily ETL job, it would make sense to schedule it as an Airflow DAG, much as has been done here: [https://github.com/ldnicolasmay/Udacity/blob/master/DataEngineering/4-DataPipelinesWithAirflow/Lesson4/dags/sparkify_dag.py](https://github.com/ldnicolasmay/Udacity/blob/master/DataEngineering/4-DataPipelinesWithAirflow/Lesson4/dags/sparkify_dag.py)
 
-2. **If the data were to be processed by 7am every day**, it would make sense to schedule it as an Airflow DAG.
+2. **If the data were to be processed by 7am every day**, it would make sense to schedule it as an Airflow DAG, much as has been done here: [https://github.com/ldnicolasmay/Udacity/blob/master/DataEngineering/4-DataPipelinesWithAirflow/Lesson4/dags/sparkify_dag.py](https://github.com/ldnicolasmay/Udacity/blob/master/DataEngineering/4-DataPipelinesWithAirflow/Lesson4/dags/sparkify_dag.py)
 
-3. **If the data needed to be accessed by 100+ people at a time**, it would be better to move the ETLed data into a database instead of storing as parquet files in an S3 bucket.
+3. **If the data needed to be accessed by 100+ people at a time**, it would be better to move the ETLed data into a cloud data warehouse such Amazon Redshift instead of storing as parquet files in an S3 bucket. Loading this data from an S3 may cause exceptions if accessing the data overloads S3's capacity.
 
 ### Defending Decisions
 
@@ -163,7 +163,7 @@ s3://udacity-ooni-project/
 
 ### ETL Apps
 
-There are three apps that perform the work for this data pipeline:
+There are three apps built for this project that make up the data pipeline. They were build separately because I wanted to keep the apps as modular as possible. Even though they are in different repositories, they are part of this capstone project.
 
 1. [FilterOoniS3Keys](https://github.com/ldnicolasmay/FilterOoniS3Keys), run _**monthly**_, a Scala app that makes use of the [AWS Java SDK v1.x](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/welcome.html) to extract all available OONI S3 keys, and filter those keys to include only target OONI tests related to TOR networks (e.g., HTTP requests, Meek fronted requests, Psiphon, Tor, Vanilla Tor), and load the filtered keys into the destination S3 bucket. 
 
